@@ -1,7 +1,7 @@
 ﻿moviesApp.factory("moviefactory", function ($http) {
     return {
         requestMovieIndex: function (callback) {
-            var url = "http://localhost:59555/Movies/GetMovies";
+            var url = "http://localhost:61626/Movies/GetMovies";
 
             $http({ method: 'GET', url: url, headers: { 'Content-Type': 'application/json' } })
                 .success(function (data, status, headers, config) {

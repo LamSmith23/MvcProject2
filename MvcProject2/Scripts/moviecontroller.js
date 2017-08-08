@@ -8,7 +8,7 @@
 
     $scope.GetMoviesCallback = function (response) {
         
-        console.log(response);
+        
         $scope.movieList = response;
 
     }

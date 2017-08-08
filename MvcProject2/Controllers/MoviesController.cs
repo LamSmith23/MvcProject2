@@ -18,6 +18,38 @@ namespace MvcProject2.Controllers
         public ActionResult Index()
         {
             return View(db.Movie.ToList());
+            
+
+            
+        }
+
+        public ActionResult GetMovies(string movieGenre, string searchString)
+        {
+            var GenreLst = new List<string>();
+
+            var GenreQry = from d in db.Movie
+                           orderby d.Genre
+                           select d.Genre;
+
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreLst);
+
+            var movies = from m in db.Movie
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
+            return Json(movies, JsonRequestBehavior.AllowGet);
+
+
+
         }
 
         // GET: Movies/Details/5
