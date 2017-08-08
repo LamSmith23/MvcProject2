@@ -53,7 +53,15 @@ namespace MvcProject2.Controllers
         }
 
         // GET: Movies/Details/5
+
         public ActionResult Details(int? id)
+        {
+            return View();
+
+        }
+
+
+        public ActionResult GetDetails(int? id)
         {
             if (id == null)
             {
@@ -64,7 +72,7 @@ namespace MvcProject2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(movy);
+            return Json(movy, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Movies/Create
