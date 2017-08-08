@@ -10,7 +10,7 @@ namespace MvcProject2.Models
     {
         public int ID { get; set; }
 
-        [StringLength(60)]
+        [StringLength(60, MinimumLength = 3)]
         public string Title { get; set; }
 
         public DateTime ReleaseDate { get; set; }
