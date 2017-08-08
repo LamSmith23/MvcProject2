@@ -2,6 +2,9 @@
 
     $scope.movieList = [];
 
+    $scope.firstName = "Lamont";
+    $scope.lastName = "Smith";
+
     $scope.getMovies = function (callback) {
         moviefactory.requestMovieIndex(callback);
     }

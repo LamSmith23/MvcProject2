@@ -6,48 +6,48 @@
 
 <h2>Details</h2>
 
-<div>
+<div ng-controller="moviecontroller">
     <h4>Movy</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" ng-init="items in movieList">
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            Title:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Title)
+           @*//Angular*@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
+            Release Date:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ReleaseDate)
+            @*//Angular*@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Genre)
+            Genre:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Genre)
+            @*//Angular*@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+           Price:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Price)
+            @*//Angular*@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Rating)
+            Rating:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Rating)
+            @*//Angular*@
         </dd>
 
     </dl>
