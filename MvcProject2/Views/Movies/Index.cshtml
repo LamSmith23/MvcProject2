@@ -1,16 +1,14 @@
-﻿
-
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div ng-controller="moviecontroller">
-    <h1>Movie Listing</h1>
+    <h1>{{movieHeader}}</h1>
 
 
     <p class="addMovie">
-        <a ng-href="@Url.Content("~/Movies/Create/")">Add Movie</a>
+        <a ng-href="~/Movies/Create/">Add Movie</a>
     </p>
 
     <table class="table">
@@ -41,14 +39,10 @@
                 {{ item.Rating }}
             </td>
             <td>
-                <a ng-href="@Url.Content("~/Movies/Edit/"){{item.ID}}">Edit</a>
-                <a ng-href="@Url.Content("~/Movies/Details/"){{item.ID}}">Details</a>
-                <a ng-href="@Url.Content("~/Movies/Delete/"){{item.ID}}">Delete</a>
+                <a ng-href="~/Movies/Edit/{{item.ID}}">Edit</a>
+                <a ng-href="~/Movies/Details/{{item.ID}}">Details</a>
+                <a ng-href="~/Movies/Delete/{{item.ID}}">Delete</a>
             </td>
         </tr>
-
-
     </table>
-
-
 </div>
