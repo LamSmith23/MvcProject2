@@ -14,40 +14,34 @@
                 Title:
                 <input type="text" value="{{movieEditList.Title}}"class="form-control" required>
             </label>
-               
-           
-        </div>
+       </div>
 
         <div class="form-group">
             <label>
                 Release Date:
                 <input type="text"  value="{{movieEditList.ReleaseDate}}"class="form-control" required>
-            </label>
-           
+            </label>  
         </div>
 
         <div class="form-group">
             <label>
                 Genre:
                 <input type="text"  value="{{movieEditList.Genre}}"class="form-control" required>
-            </label>
-            
+            </label>  
         </div>
 
         <div class="form-group">
             <label>
                 Price:
                 <input type="text"  value="{{movieEditList.Price}}"class="form-control" required>
-            </label>
-            
+            </label>    
         </div>
 
         <div class="form-group">
            <label>
                Rating:
                <input type="text"  value="{{movieEditList.Rating}}"class="form-control" required>
-            </label>
-            
+            </label>   
         </div>
 
         <div class="form-group">
@@ -59,7 +53,8 @@
 
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    
+    <a ng-href="~/Movies/">Back To List</a>
 </div>
 
 @section Scripts {

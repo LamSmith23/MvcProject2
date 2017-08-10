@@ -106,5 +106,30 @@ moviesApp.controller("moviedeletecontroller", function ($scope, moviedeletefacto
 
     $scope.deleteMovie($scope.DeleteMovieCallback);
 
-});
+})
+
+moviesApp.controller("createmoviecontroller", function ($scope, createmoviefactory) {
+    $scope.createMovie = [];
+
+    $scope.movieHeader = "Create Movie";
+
+
+    $scope.createMovie = function (movie) {
+        createmoviefactory.createMovieIndex(movie);
+    };
+
+    $scope.createMoviesCallback = function (response) {
+
+
+        $scope.createMovie = response;
+
+    };
+
+    $scope.createMovie($scope.createMoviesCallback);
+
+    
+    
+    
+    
+    });
 

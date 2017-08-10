@@ -75,25 +75,24 @@ namespace MvcProject2.Controllers
         // GET: Movies/Create
         public ActionResult Create()
         {
-            return View();
+            return View("~/Views/Movies/Create.cshtml");
         }
 
         // POST: Movies/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Rating")] Movy movy)
+        //[ValidateAntiForgeryToken]
+        public ActionResult CreateMovie( Movy movy)
         {
-            if (ModelState.IsValid)
-            {
+           
                 db.Movie.Add(movy);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(movy);
+                return View("~/Views/Movies/Index.cshtml");
+            
         }
+
+            
 
         // GET: Movies/Edit/5
 

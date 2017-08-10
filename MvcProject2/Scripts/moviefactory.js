@@ -1,4 +1,8 @@
-﻿moviesApp.factory("moviefactory", function ($http) {
+﻿
+
+            /* 'Get' Methods */
+
+moviesApp.factory("moviefactory", function ($http) {
     return {
         requestMovieIndex: function (callback) {
             var url = "http://localhost:61626/Movies/GetMovies";
@@ -9,12 +13,7 @@
                     callback(data);
                 }).error(function (data, status, headers, config) { });
         }
-
-
     }
-
-
-
 })
 
 moviesApp.factory("movieeditfactory", function ($http) {
@@ -32,8 +31,6 @@ moviesApp.factory("movieeditfactory", function ($http) {
 
     }
 
-
-
 })
 
 moviesApp.factory("moviedetailfactory", function ($http) {
@@ -41,10 +38,6 @@ moviesApp.factory("moviedetailfactory", function ($http) {
         requestMovieDetailIndex: function (callback, ID) {
             var url = "http://localhost:61626/Movies/GetDetails/" + ID;
 
-            console.log(url);
-          
-            
-
             $http({ method: 'GET', url: url, headers: { 'Content-Type': 'application/json' } })
                 .success(function (data, status, headers, config) {
                     data = angular.fromJson(data);
@@ -52,11 +45,7 @@ moviesApp.factory("moviedetailfactory", function ($http) {
                 }).error(function (data, status, headers, config) { });
         }
 
-
-    }
-
-
-
+     }
 })
 
 moviesApp.factory("moviedeletefactory", function ($http) {
@@ -64,18 +53,31 @@ moviesApp.factory("moviedeletefactory", function ($http) {
         requestMovieDeleteIndex: function (callback, ID) {
             var url = "http://localhost:61626/Movies/DeleteDetails/" + ID;
 
-            console.log(url);
-
-
-
             $http({ method: 'GET', url: url, headers: { 'Content-Type': 'application/json' } })
                 .success(function (data, status, headers, config) {
                     data = angular.fromJson(data);
                     callback(data);
                 }).error(function (data, status, headers, config) { });
         }
-
-
     }
+
+})
+
+
+                /* 'POST' Methods */
+
+moviesApp.factory("createmoviefactory", function ($http) {
+    return {
+        createMovieIndex: function (movie) {
+            var url = "http://localhost:61626/Movies/Create/";
+
+            $http({ method: 'POST', url: url, data: movie, headers:{ 'Content-Type': 'application/json' } })
+                .success(function (response) {
+                    movie(response.data);
+                   }).error(function (response) { });
+        }
+    }
+
+
 
 });
