@@ -17,10 +17,7 @@ namespace MvcProject2.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            return View(db.Movie.ToList());
-            
-
-            
+            return View("~/Views/Movies/Index.cshtml");
         }
 
         public ActionResult GetMovies(string movieGenre, string searchString)
@@ -99,7 +96,12 @@ namespace MvcProject2.Controllers
         }
 
         // GET: Movies/Edit/5
+
         public ActionResult Edit(int? id)
+        {
+            return View("~/Views/Movies/Edit.cshtml");
+        }
+        public ActionResult EditDetails(int? id)
         {
             if (id == null)
             {
@@ -110,7 +112,7 @@ namespace MvcProject2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(movy);
+            return Json(movy, JsonRequestBehavior.AllowGet);
         }
 
         // POST: Movies/Edit/5

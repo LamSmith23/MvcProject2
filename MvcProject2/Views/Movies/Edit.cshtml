@@ -13,13 +13,13 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal" ng-controller="moviecontroller">
+    <div class="form-horizontal" ng-controller="movieeditcontroller">
         <h4>Movy</h4>
         <hr />
         <div class="form-group">
             <label>
                 Title:
-                <input type="text"  value="{{movieList[0].Title}}" class="form-control" required>
+                <input type="text" value="{{movieEditList.Title}}" class="form-control" required>
             </label>
                
             <div class="col-md-10">
@@ -32,7 +32,7 @@
         <div class="form-group">
             <label>
                 Release Date:
-                <input type="text" value="{{movieList[0].ReleaseDate}}" class="form-control" required>
+                <input type="text" class="form-control" required>
             </label>
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
@@ -43,7 +43,7 @@
         <div class="form-group">
             <label>
                 Genre:
-                <input type="text" value="{{movieList[0].Genre}}" class="form-control" required>
+                <input type="text" class="form-control" required>
             </label>
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Genre, new { htmlAttributes = new { @class = "form-control" } })
@@ -54,7 +54,7 @@
         <div class="form-group">
             <label>
                 Price:
-                <input type="text" value="{{movieList[0].Price}}" class="form-control" required>
+                <input type="text" class="form-control" required>
             </label>
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
@@ -65,7 +65,7 @@
         <div class="form-group">
            <label>
                Rating:
-               <input type="text" value="{{movieList[0].Rating}}" class="form-control" required>
+               <input type="text" class="form-control" required>
             </label>
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })

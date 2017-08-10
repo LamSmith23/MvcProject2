@@ -18,7 +18,31 @@
 
     $scope.getMovies($scope.GetMoviesCallback);
 
-});
+})
+
+moviesApp.controller("movieeditcontroller", function ($scope, movieeditfactory) {
+
+    var urlParts = window.location.href.split('/');
+    var lastPart = urlParts[urlParts.length - 1];
+    var movieEditID = parseInt(lastPart);
+
+    //console.log(movieEditID);
+
+        $scope.movieEditList = [];
+
+       $scope.editMovie = function (callback) {
+
+           movieeditfactory.requestMovieEditIndex(callback, movieEditID);
+        };
+
+        $scope.GetMovieEditCallback = function (response) {
+
+            $scope.movieEditList = response;
+
+         };
+            $scope.editMovie($scope.GetMovieEditCallback);
+})
+
 
 moviesApp.controller("moviedetailcontroller", function ($scope, moviedetailfactory) {
     var urlParts = window.location.href.split('/');
@@ -34,7 +58,7 @@ moviesApp.controller("moviedetailcontroller", function ($scope, moviedetailfacto
 
         $scope.getMovie = function (callback) {
 
-            moviedetailfactory.requestMovieDetailIndex(movieID, callback);
+            moviedetailfactory.requestMovieDetailIndex(callback, movieID);
         };
 
         $scope.GetMovieCallback = function (data) {
