@@ -85,11 +85,12 @@ namespace MvcProject2.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult CreateMovie( Movy movy)
         {
-           
+            if (ModelState.IsValid) {
                 db.Movie.Add(movy);
                 db.SaveChanges();
-                return View("~/Views/Movies/Index.cshtml");
-            
+               
+            }
+            return View("~/Views/Movies/Index.cshtml");
         }
 
             

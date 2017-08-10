@@ -70,14 +70,15 @@ moviesApp.factory("createmoviefactory", function ($http) {
     return {
         createMovieIndex: function (movie) {
             var url = "http://localhost:61626/Movies/Create/";
+            console.log(movie);
 
-            $http({ method: 'POST', url: url, data: movie, headers:{ 'Content-Type': 'application/json' } })
-                .success(function (response) {
-                    movie(response.data);
-                   }).error(function (response) { });
+            $http({ method: 'POST', url: url, data: movie,headers:{ 'Content-Type': 'application/json' } })
+                .success(function (data, status, headers, config) {
+                    window.location.href = "/Movies/";
+                   }).error(function (data,status,headers,config) { });
         }
     }
 
-
+    
 
 });

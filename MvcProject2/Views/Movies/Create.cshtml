@@ -4,66 +4,64 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+
 
 
 
     
     <div class="form-horizontal" ng-controller="createmoviecontroller">
-        <h4>Movy</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <h2>{{movieHeader}}</h2>
+    <hr />
+    <div class="form-group">
+        <label>
+            Title:
+            <input type="text" ng-model="{{createMovies.Title}}"  class="form-control" required>
+        </label>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ReleaseDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="form-group">
+        <label>
+            Release Date:
+            <input type="text" ng-model="{{createMovies.ReleaseDate}}"class="form-control" required>
+        </label>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Genre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Genre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="form-group">
+        <label>
+            Genre:
+            <input type="text" ng-model="{{createMovies.Genre}}"  class="form-control" required>
+        </label>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="form-group">
+        <label>
+            Price:
+            <input type="text"  ng-model="{{createMovies.Price}}" class="form-control" required>
+        </label>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="form-group">
+        <label>
+            Rating:
+            <input type="text" ng-model="{{createMovies.Rating}}"class="form-control" required>
+        </label>
+    </div>
+
+  
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" ng-click="update(movie)" class="btn btn-default"> Submit </button>
+                <button type="submit" ng-click="createMovies(movie)" class="btn btn-default"> Submit </button>
+                <a ng-href="~/Movies/">Back To List</a>
             </div>
         </div>
-    </div>
-
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+
+   
+
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
