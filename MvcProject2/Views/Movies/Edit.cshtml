@@ -1,25 +1,18 @@
-﻿@model MvcProject2.Models.Movy
-
-@{
+﻿@{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
 
-<h2>Edit</h2>
 
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
     
     <div class="form-horizontal" ng-controller="movieeditcontroller">
-        <h4>Movy</h4>
+        <h2>{{editHeader}}</h2>
         <hr />
         <div class="form-group">
             <label>
                 Title:
-                <input type="text" value="{{movieEditList.Title}}" class="form-control" required>
+                <input type="text" value="{{movieEditList.Title}}"class="form-control" required>
             </label>
                
             <div class="col-md-10">
@@ -32,7 +25,7 @@
         <div class="form-group">
             <label>
                 Release Date:
-                <input type="text" class="form-control" required>
+                <input type="text"  value="{{movieEditList.ReleaseDate}}"class="form-control" required>
             </label>
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
@@ -43,7 +36,7 @@
         <div class="form-group">
             <label>
                 Genre:
-                <input type="text" class="form-control" required>
+                <input type="text"  value="{{movieEditList.Genre}}"class="form-control" required>
             </label>
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Genre, new { htmlAttributes = new { @class = "form-control" } })
@@ -54,7 +47,7 @@
         <div class="form-group">
             <label>
                 Price:
-                <input type="text" class="form-control" required>
+                <input type="text"  value="{{movieEditList.Price}}"class="form-control" required>
             </label>
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
@@ -65,7 +58,7 @@
         <div class="form-group">
            <label>
                Rating:
-               <input type="text" class="form-control" required>
+               <input type="text"  value="{{movieEditList.Rating}}"class="form-control" required>
             </label>
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
@@ -79,7 +72,7 @@
             </div>
         </div>
     </div>
-}
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

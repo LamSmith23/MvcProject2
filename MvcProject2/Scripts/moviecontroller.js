@@ -26,9 +26,10 @@ moviesApp.controller("movieeditcontroller", function ($scope, movieeditfactory) 
     var lastPart = urlParts[urlParts.length - 1];
     var movieEditID = parseInt(lastPart);
 
-    //console.log(movieEditID);
+    
 
-        $scope.movieEditList = [];
+    $scope.movieEditList = [];
+    $scope.editHeader = "Edit Movie List";
 
        $scope.editMovie = function (callback) {
 
@@ -40,8 +41,11 @@ moviesApp.controller("movieeditcontroller", function ($scope, movieeditfactory) 
             $scope.movieEditList = response;
 
          };
-            $scope.editMovie($scope.GetMovieEditCallback);
+        $scope.editMovie($scope.GetMovieEditCallback);
+    
 })
+
+
 
 
 moviesApp.controller("moviedetailcontroller", function ($scope, moviedetailfactory) {

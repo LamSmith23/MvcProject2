@@ -113,6 +113,8 @@ namespace MvcProject2.Controllers
                 return HttpNotFound();
             }
             return Json(movy, JsonRequestBehavior.AllowGet);
+
+            
         }
 
         // POST: Movies/Edit/5
