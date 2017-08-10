@@ -134,7 +134,12 @@ namespace MvcProject2.Controllers
         }
 
         // GET: Movies/Delete/5
+
         public ActionResult Delete(int? id)
+        {
+            return View("~/Views/Movies/Delete.cshtml");
+        }
+        public ActionResult DeleteDetails(int? id)
         {
             if (id == null)
             {
@@ -145,7 +150,7 @@ namespace MvcProject2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(movy);
+            return Json(movy, JsonRequestBehavior.AllowGet);
         }
 
         // POST: Movies/Delete/5

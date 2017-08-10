@@ -51,7 +51,7 @@ moviesApp.controller("movieeditcontroller", function ($scope, movieeditfactory) 
 moviesApp.controller("moviedetailcontroller", function ($scope, moviedetailfactory) {
     var urlParts = window.location.href.split('/');
     var lastPart = urlParts[urlParts.length - 1];
-    var movieID = parseInt(lastPart);
+    var movieDetailID = parseInt(lastPart);
   
 
         $scope.moviedetailList = {};
@@ -62,7 +62,7 @@ moviesApp.controller("moviedetailcontroller", function ($scope, moviedetailfacto
 
         $scope.getMovie = function (callback) {
 
-            moviedetailfactory.requestMovieDetailIndex(callback, movieID);
+            moviedetailfactory.requestMovieDetailIndex(callback, movieDetailID);
         };
 
         $scope.GetMovieCallback = function (data) {
@@ -76,5 +76,35 @@ moviesApp.controller("moviedetailcontroller", function ($scope, moviedetailfacto
 
         $scope.getMovie($scope.GetMovieCallback);
 
-    });
+})
+
+moviesApp.controller("moviedeletecontroller", function ($scope, moviedeletefactory) {
+    var urlParts = window.location.href.split('/');
+    var lastPart = urlParts[urlParts.length - 1];
+    var movieDeleteID = parseInt(lastPart);
+
+
+    $scope.moviedeleteList = {};
+
+    $scope.deleteHeader = "Delete Details";
+
+
+
+    $scope.deleteMovie = function (callback) {
+
+        moviedeletefactory.requestMovieDeleteIndex(callback, movieDeleteID);
+    };
+
+    $scope.DeleteMovieCallback = function (data) {
+
+
+        $scope.moviedeleteList = data;
+
+
+
+    };
+
+    $scope.deleteMovie($scope.DeleteMovieCallback);
+
+});
 

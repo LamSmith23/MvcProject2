@@ -57,4 +57,25 @@ moviesApp.factory("moviedetailfactory", function ($http) {
 
 
 
+})
+
+moviesApp.factory("moviedeletefactory", function ($http) {
+    return {
+        requestMovieDeleteIndex: function (callback, ID) {
+            var url = "http://localhost:61626/Movies/DeleteDetails/" + ID;
+
+            console.log(url);
+
+
+
+            $http({ method: 'GET', url: url, headers: { 'Content-Type': 'application/json' } })
+                .success(function (data, status, headers, config) {
+                    data = angular.fromJson(data);
+                    callback(data);
+                }).error(function (data, status, headers, config) { });
+        }
+
+
+    }
+
 });
