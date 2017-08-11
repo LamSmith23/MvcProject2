@@ -104,17 +104,21 @@ moviesApp.factory("editmoviefactory", function ($http) {
 
 moviesApp.factory("deletemoviefactory", function ($http) {
     return {
-        deleteMovieIndex: function (deletemovies) {
-            var url = "http://localhost:61626/Movies/DeleteMovie";
+        deleteMovieIndex: function (Movie) {
+            var url = "http://localhost:61626/Movies/RemoveMovie";
+           
+            
+            
 
 
-            $http({ method: 'POST', url: url, data: deletemovies, headers: { 'Content-Type': 'application/json' } })
+            $http({ method: 'POST', url: url, data: Movie, headers: { 'Content-Type': 'application/json' } })
                 .success(function (data, status, headers, config) {
-                    window.location.href = "/Movies/";
+                    window.location.href = "http://localhost:61626/Movies/Index";
 
                 }).error(function (data, status, headers, config) { });
         }
     }
+
 
 
 });

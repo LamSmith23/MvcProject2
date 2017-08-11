@@ -124,17 +124,18 @@ namespace MvcProject2.Controllers
         
         public ActionResult EditPost( Movy movy)
         {
-
+            if (ModelState.IsValid)
+            {
                 db.Movie.Add(movy);
-               db.SaveChanges();
-               
+                db.SaveChanges();
+            }  
             
             return View("~/Views/Movies/Index.cshtml");
         }
 
         // GET: Movies/Delete/5
 
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             return View("~/Views/Movies/Delete.cshtml");
         }
@@ -154,13 +155,25 @@ namespace MvcProject2.Controllers
 
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
-        
-        public ActionResult DeleteMovie(int id)
+
+        public ActionResult Delete(int? id)
         {
-            Movy movy = db.Movie.Find(id);
-            db.Movie.Remove(movy);
-            db.SaveChanges();
-            return View("~/Views/Movies/Index.cshtml");
+            return View("~/Views/Movies/Delete.cshtml");
+        }
+
+
+
+        public ActionResult RemoveMovie(int? id)
+        {
+
+            
+                Movy movy = db.Movie.Find(id);
+                db.Movie.Remove(movy);
+                db.SaveChanges();
+            
+            
+            return RedirectToAction("Index");
+
         }
 
         protected override void Dispose(bool disposing)

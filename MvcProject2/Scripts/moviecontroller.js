@@ -78,7 +78,7 @@ moviesApp.controller("moviedetailcontroller", function ($scope, moviedetailfacto
 
 })
 
-moviesApp.controller("moviedeletecontroller", function ($scope, moviedeletefactory) {
+moviesApp.controller("moviedeletecontroller", function ($scope, moviedeletefactory, deletemoviefactory) {
     var urlParts = window.location.href.split('/');
     var lastPart = urlParts[urlParts.length - 1];
     var movieDeleteID = parseInt(lastPart);
@@ -87,6 +87,7 @@ moviesApp.controller("moviedeletecontroller", function ($scope, moviedeletefacto
     $scope.moviedeleteList = {};
 
     $scope.deleteHeader = "Delete Details";
+
 
 
 
@@ -105,6 +106,16 @@ moviesApp.controller("moviedeletecontroller", function ($scope, moviedeletefacto
     };
 
     $scope.deleteMovie($scope.DeleteMovieCallback);
+
+
+    $scope.deletesMovie = function (Movie) {
+        Movie = $scope.moviedeleteList;
+        deletemoviefactory.deleteMovieIndex(Movie);
+        console.log(Movie);
+
+    }
+
+    
 
 })
 
@@ -135,11 +146,11 @@ moviesApp.controller("editmoviecontroller", function ($scope, editmoviefactory) 
     var lastPart = urlParts[urlParts.length - 1];
     var editMovy = parseInt(lastPart);
 
-    $scope.movieHeader = "Create Movie";
 
 
     $scope.editMovie = function (editmovies) {
         editmoviefactory.editMovieIndex(editmovies, editMovy);
+        
         
     };
 
@@ -148,16 +159,26 @@ moviesApp.controller("editmoviecontroller", function ($scope, editmoviefactory) 
 
 
 moviesApp.controller("deletemoviecontroller", function ($scope, deletemoviefactory) {
-    //$scope.createMovies = [];
-    var urlParts = window.location.href.split('/');
-    var lastPart = urlParts[urlParts.length - 1];
-    var deleteMovy = parseInt(lastPart);
-
-    $scope.movieHeader = "Create Movie";
+    $scope.deleteMovies = {};
+    
 
 
-    $scope.deleteMovie = function (deletemovies) {
-        deletemoviefactory.deleteMovieIndex(deletemovies, deleteMovy);
+
+    $scope.deletesMovie = function (Movie) {
+        Movie = $scope.deleteMovies;
+       
+        deletemoviefactory.deleteMovieIndex(Movie);
+
+
+        $scope.onSubmit = function (Movie) {
+           Movie = $scope.deleteMovies;
+            deletemoviefactory.deleteMovieIndex(Movie);
+
+        }
+
+
+
+       
 
     };
 
