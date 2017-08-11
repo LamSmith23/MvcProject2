@@ -108,25 +108,59 @@ moviesApp.controller("moviedeletecontroller", function ($scope, moviedeletefacto
 
 })
 
+
+        /* Post */
+
 moviesApp.controller("createmoviecontroller", function ($scope, createmoviefactory) {
-    $scope.createMovies = [];
+    $scope.formModel = {};
+
+    $scope.movieHeader = "Create Movie";
+   
+
+
+    $scope.createMovie = function (movie) {
+        movie = $scope.formModel;
+
+       createmoviefactory.createMovieIndex(movie);
+        
+    };
+
+
+})
+
+
+moviesApp.controller("editmoviecontroller", function ($scope, editmoviefactory) {
+    //$scope.createMovies = [];
+    var urlParts = window.location.href.split('/');
+    var lastPart = urlParts[urlParts.length - 1];
+    var editMovy = parseInt(lastPart);
 
     $scope.movieHeader = "Create Movie";
 
 
-    $scope.createMovies = function (movie) {
-        createmoviefactory.createMovieIndex(movie);
-        console.log(movie);
+    $scope.editMovie = function (editmovies) {
+        editmoviefactory.editMovieIndex(editmovies, editMovy);
+        
     };
 
-    //$scope.createMoviesCallback = function (response) {
+
+})
 
 
-    //    $scope.createMovie = response;
+moviesApp.controller("deletemoviecontroller", function ($scope, deletemoviefactory) {
+    //$scope.createMovies = [];
+    var urlParts = window.location.href.split('/');
+    var lastPart = urlParts[urlParts.length - 1];
+    var deleteMovy = parseInt(lastPart);
 
-    //};
+    $scope.movieHeader = "Create Movie";
 
-    //$scope.createMovie($scope.createMoviesCallback);
 
- });
+    $scope.deleteMovie = function (deletemovies) {
+        deletemoviefactory.deleteMovieIndex(deletemovies, deleteMovy);
+
+    };
+
+
+});
 

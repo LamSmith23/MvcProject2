@@ -42,8 +42,8 @@
 
    
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+        <div class="form-actions no-color" ng-controller="deletemoviecontroller">
+            <button type="submit" ng-click="deleteMovie(deletemovies)" class="btn btn-default"> Delete </button> 
             <a ng-href="~/Movies/">Back To List</a>
         </div>
     

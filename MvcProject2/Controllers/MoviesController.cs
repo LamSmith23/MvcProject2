@@ -85,11 +85,11 @@ namespace MvcProject2.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult CreateMovie( Movy movy)
         {
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 db.Movie.Add(movy);
                 db.SaveChanges();
-               
-            }
+            }  
             return View("~/Views/Movies/Index.cshtml");
         }
 
@@ -121,16 +121,15 @@ namespace MvcProject2.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Rating")] Movy movy)
+        
+        public ActionResult EditPost( Movy movy)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(movy).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(movy);
+
+                db.Movie.Add(movy);
+               db.SaveChanges();
+               
+            
+            return View("~/Views/Movies/Index.cshtml");
         }
 
         // GET: Movies/Delete/5
@@ -155,13 +154,13 @@ namespace MvcProject2.Controllers
 
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        
+        public ActionResult DeleteMovie(int id)
         {
             Movy movy = db.Movie.Find(id);
             db.Movie.Remove(movy);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("~/Views/Movies/Index.cshtml");
         }
 
         protected override void Dispose(bool disposing)

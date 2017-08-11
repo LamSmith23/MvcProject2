@@ -1,49 +1,42 @@
-﻿@model MvcProject2.Models.Movy
-
-@{
+﻿@{
     ViewBag.Title = "Create";
 }
 
-
-
-
-
-    
-    <div class="form-horizontal" ng-controller="createmoviecontroller">
+ <div class="form-horizontal" ng-controller="createmoviecontroller">
     <h2>{{movieHeader}}</h2>
     <hr />
     <div class="form-group">
         <label>
             Title:
-            <input type="text" ng-model="{{createMovies.Title}}"  class="form-control" required>
+            <input type="text" ng-model="formModel.Title"  class="form-control" required>
         </label>
     </div>
 
     <div class="form-group">
         <label>
             Release Date:
-            <input type="text" ng-model="{{createMovies.ReleaseDate}}"class="form-control" required>
+            <input type="text" ng-model="formModel.ReleaseDate" class="form-control" required>
         </label>
     </div>
 
     <div class="form-group">
         <label>
             Genre:
-            <input type="text" ng-model="{{createMovies.Genre}}"  class="form-control" required>
+            <input type="text" ng-model="formModel.Genre"  class="form-control" required>
         </label>
     </div>
 
     <div class="form-group">
         <label>
             Price:
-            <input type="text"  ng-model="{{createMovies.Price}}" class="form-control" required>
+            <input type="text" ng-model="formModel.Price"  class="form-control" required>
         </label>
     </div>
 
     <div class="form-group">
         <label>
             Rating:
-            <input type="text" ng-model="{{createMovies.Rating}}"class="form-control" required>
+            <input type="text" ng-model="formModel.Rating"class="form-control" required>
         </label>
     </div>
 
@@ -52,7 +45,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" ng-click="createMovies(movie)" class="btn btn-default"> Submit </button>
+                <button type="submit" ng-click="createMovie(movie)" class="btn btn-default"> Submit </button>
                 <a ng-href="~/Movies/">Back To List</a>
             </div>
         </div>

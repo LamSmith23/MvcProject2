@@ -69,16 +69,52 @@ moviesApp.factory("moviedeletefactory", function ($http) {
 moviesApp.factory("createmoviefactory", function ($http) {
     return {
         createMovieIndex: function (movie) {
-            var url = "http://localhost:61626/Movies/Create/";
-            console.log(movie);
+            var url = "http://localhost:61626/Movies/CreateMovie";
+          
 
             $http({ method: 'POST', url: url, data: movie,headers:{ 'Content-Type': 'application/json' } })
                 .success(function (data, status, headers, config) {
                     window.location.href = "/Movies/";
+                    
                    }).error(function (data,status,headers,config) { });
         }
     }
 
-    
+
+})
+
+
+
+moviesApp.factory("editmoviefactory", function ($http) {
+    return {
+        editMovieIndex: function (editmovies) {
+            var url = "http://localhost:61626/Movies/EditPost";
+
+
+            $http({ method: 'POST', url: url, data: editmovies, headers: { 'Content-Type': 'application/json' } })
+                .success(function (data, status, headers, config) {
+                    window.location.href = "/Movies/";
+
+                }).error(function (data, status, headers, config) { });
+        }
+    }
+
+
+})
+
+moviesApp.factory("deletemoviefactory", function ($http) {
+    return {
+        deleteMovieIndex: function (deletemovies) {
+            var url = "http://localhost:61626/Movies/DeleteMovie";
+
+
+            $http({ method: 'POST', url: url, data: deletemovies, headers: { 'Content-Type': 'application/json' } })
+                .success(function (data, status, headers, config) {
+                    window.location.href = "/Movies/";
+
+                }).error(function (data, status, headers, config) { });
+        }
+    }
+
 
 });
