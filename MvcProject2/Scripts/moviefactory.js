@@ -93,7 +93,7 @@ moviesApp.factory("editmoviefactory", function ($http) {
 
             $http({ method: 'POST', url: url, data: editmovies, headers: { 'Content-Type': 'application/json' } })
                 .success(function (data, status, headers, config) {
-                    window.location.href = "/Movies/";
+                    window.location.href = "http://localhost:61626/Movies/Index";
 
                 }).error(function (data, status, headers, config) { });
         }

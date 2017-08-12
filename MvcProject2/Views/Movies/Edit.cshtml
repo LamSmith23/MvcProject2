@@ -12,50 +12,51 @@
         <div class="form-group">
             <label>
                 Title:
-                <input type="text" value="{{movieEditList.Title}}"class="form-control" required>
+                <input type="text" ng-model="movieEditList.Title"class="form-control" required>
             </label>
        </div>
 
         <div class="form-group">
             <label>
                 Release Date:
-                <input type="text"  value="{{movieEditList.ReleaseDate}}"class="form-control" required>
+                <input type="text"  ng-model="movieEditList.ReleaseDate"class="form-control" required>
             </label>  
         </div>
 
         <div class="form-group">
             <label>
                 Genre:
-                <input type="text"  value="{{movieEditList.Genre}}"class="form-control" required>
+                <input type="text"  ng-model="movieEditList.Genre"class="form-control" required>
             </label>  
         </div>
 
         <div class="form-group">
             <label>
                 Price:
-                <input type="text"  value="{{movieEditList.Price}}"class="form-control" required>
+                <input type="text"  ng-model="movieEditList.Price"class="form-control" required>
             </label>    
         </div>
 
         <div class="form-group">
            <label>
                Rating:
-               <input type="text"  value="{{movieEditList.Rating}}"class="form-control" required>
+               <input type="text"  ng-model="movieEditList.Rating" class="form-control" required>
             </label>   
         </div>
 
-        <div class="form-group" ng-controller="editmoviecontroller">
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" ng-click="editMovie(editmovies)" class="btn btn-default"> Save </button>
+                <button type="submit" ng-click="editsMovie(editmovies)" class="btn btn-default"> Save </button>
+                <a ng-href="~/Movies/">Back To List</a>
             </div>
         </div>
     </div>
 
 
-<div>
+
     
-    <a ng-href="~/Movies/">Back To List</a>
-</div>
+   
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
