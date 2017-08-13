@@ -1,7 +1,10 @@
 ﻿@{
     ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
+<div ng-controller="header">
+    <h2>{{about}}</h2>
+    <h3>{{message}}</h3>
+</div>
 <p>Use this area to provide additional information.</p>

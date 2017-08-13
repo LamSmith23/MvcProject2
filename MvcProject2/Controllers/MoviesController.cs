@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcProject2.Models;
+using System.Data.Entity.Validation;
 
 namespace MvcProject2.Controllers
 {
@@ -74,6 +75,10 @@ namespace MvcProject2.Controllers
         // GET: Movies/Create
         public ActionResult Create()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
             return View("~/Views/Movies/Create.cshtml");
         }
 
@@ -98,8 +103,14 @@ namespace MvcProject2.Controllers
 
         public ActionResult Edit(int? id)
         {
-            return View("~/Views/Movies/Edit.cshtml");
-        }
+
+            if (!User.Identity.IsAuthenticated)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+
+                return View("~/Views/Movies/Edit.cshtml");
+         }
         public ActionResult EditDetails(int? id)
         {
             if (id == null)
@@ -124,18 +135,37 @@ namespace MvcProject2.Controllers
         
         public ActionResult EditPost( Movy movy)
         {
-            
+            try
+            {
                 db.Movie.Add(movy);
                 db.SaveChanges();
-            
-            
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+            }
+            //db.Movie.Add(movy);
+            //    db.SaveChanges();
             return View("~/Views/Movies/Index.cshtml");
+
         }
 
         // GET: Movies/Delete/5
 
         public ActionResult Delete(int id)
         {
+
+            if (!User.Identity.IsAuthenticated)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+
             return View("~/Views/Movies/Delete.cshtml");
         }
         public ActionResult DeleteDetails(int? id)

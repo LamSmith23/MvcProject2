@@ -3,6 +3,11 @@
     $scope.gettingStarted = "Getting Started";
     $scope.morelibraries = "Get More Libraries";
     $scope.webhosting = "Web Hosting";
+    $scope.manage = "Manage";
+    $scope.contact = "Contact";
+    $scope.contactPage = "Your Contact Page";
+    $scope.about = "About";
+    $scope.message = "Your Application Description Page";
 
 
 

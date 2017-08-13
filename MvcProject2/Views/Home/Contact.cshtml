@@ -1,8 +1,12 @@
 ﻿@{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+
+
+<div ng-controller="header">
+<h2>{{contact}}</h2>
+<h3>{{contactPage}}</h3>
 
 <address>
     One Microsoft Way<br />
@@ -15,3 +19,5 @@
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+</div>
