@@ -54,7 +54,6 @@ namespace MvcProject2.Controllers
         public ActionResult Details(int? id)
         {
             return View("~/Views/Movies/Details.cshtml");
-
         }
 
 
@@ -82,7 +81,7 @@ namespace MvcProject2.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+     
         public ActionResult CreateMovie( Movy movy)
         {
             if (ModelState.IsValid)

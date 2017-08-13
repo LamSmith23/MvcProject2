@@ -1,4 +1,14 @@
-﻿moviesApp.controller("moviecontroller", function ($scope, moviefactory) {
+﻿moviesApp.controller("header", function ($scope) {
+    $scope.asp = "ASP.NET";
+    $scope.gettingStarted = "Getting Started";
+    $scope.morelibraries = "Get More Libraries";
+    $scope.webhosting = "Web Hosting";
+
+
+
+})
+
+moviesApp.controller("moviecontroller", function ($scope, moviefactory) {
 
     $scope.movieList = [];
 
@@ -125,6 +135,7 @@ moviesApp.controller("moviedeletecontroller", function ($scope, moviedeletefacto
     
 
 })
+
 
 
         /* Post */
