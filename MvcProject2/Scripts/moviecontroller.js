@@ -9,8 +9,6 @@
     $scope.about = "About";
     $scope.message = "Your Application Description Page";
 
-
-
 })
 
 moviesApp.controller("moviecontroller", function ($scope, moviefactory) {

@@ -11,15 +11,16 @@ namespace MvcProject2.Models
         public int ID { get; set; }
 
         [StringLength(60, MinimumLength = 3)]
+        [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = "Date is required")]
         [Display(Name = "Release Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime ReleaseDate { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
-        [Required]
+        [Required(ErrorMessage = "Genre must be specified")]
         [StringLength(30)]
         public string Genre { get; set; }
 
