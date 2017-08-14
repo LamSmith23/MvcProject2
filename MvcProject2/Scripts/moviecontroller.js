@@ -153,7 +153,9 @@ moviesApp.controller("createmoviecontroller", function ($scope, createmoviefacto
     $scope.createMovie = function (movie) {
         movie = $scope.formModel;
 
-       createmoviefactory.createMovieIndex(movie);
+        createmoviefactory.createMovieIndex(movie);
+
+        alert( movie.Title + ' has been sucessfully added to your Movies Collection');
         
     };
 

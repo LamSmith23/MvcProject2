@@ -88,6 +88,11 @@ dfn {
   font-style: italic;
 }
 
+.form-horizontal
+{
+   text-align: center;
+   
+}
 hr {
   height: 0;
   -moz-box-sizing: content-box;
@@ -1215,7 +1220,7 @@ pre code {
     margin-left: 8.333333333333332%;
   }
   .col-md-offset-2 {
-    margin-left: 16.666666666666664%;
+    margin-left: 9.666667%;
   }
   .col-md-offset-3 {
     margin-left: 25%;
