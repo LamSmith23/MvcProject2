@@ -16,8 +16,8 @@ namespace MvcProject2.Models
 
         [Required(ErrorMessage = "Date is required")]
         [Display(Name = "Release Date")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime ReleaseDate { get; set; }
+        //[DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public string ReleaseDate{ get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
         [Required(ErrorMessage = "Genre must be specified")]
