@@ -147,7 +147,7 @@ moviesApp.controller("createmoviecontroller", function ($scope, createmoviefacto
     $scope.formModel = {};
 
     $scope.movieHeader = "Create Movie";
-   
+
 
 
     $scope.createMovie = function (movie) {
@@ -155,9 +155,7 @@ moviesApp.controller("createmoviecontroller", function ($scope, createmoviefacto
 
         createmoviefactory.createMovieIndex(movie);
 
-       alert(movie.Title + "Has Been Sucessfully Added To Your Movie Collection")
-       
-    
+        alert(movie.Title + " Sucessfully Added To Your Movie Collection ");
         
     };
 
