@@ -155,7 +155,9 @@ moviesApp.controller("createmoviecontroller", function ($scope, createmoviefacto
 
         createmoviefactory.createMovieIndex(movie);
 
-        alert( movie.Title + ' has been sucessfully added to your Movies Collection');
+       alert(movie.Title + "Has Been Sucessfully Added To Your Movie Collection")
+       
+    
         
     };
 
