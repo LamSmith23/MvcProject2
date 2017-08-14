@@ -75,6 +75,7 @@ namespace MvcProject2.Controllers
         // GET: Movies/Create
         public ActionResult Create()
         {
+            
             if (!User.Identity.IsAuthenticated)
             {
                 return View("~/Views/Shared/Error.cshtml");
